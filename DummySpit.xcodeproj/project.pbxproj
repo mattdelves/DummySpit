@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C92A473E199F250100FAA789 /* DummySpit.h in Headers */ = {isa = PBXBuildFile; fileRef = C92A473D199F250100FAA789 /* DummySpit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C92A4748199F250200FAA789 /* DummySpitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4747199F250200FAA789 /* DummySpitTests.swift */; };
+		C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		C92A4743199F250200FAA789 /* DummySpitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DummySpitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92A4746199F250200FAA789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92A4747199F250200FAA789 /* DummySpitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummySpitTests.swift; sourceTree = "<group>"; };
+		C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySpitURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				C92A473D199F250100FAA789 /* DummySpit.h */,
 				C92A473B199F250100FAA789 /* Supporting Files */,
+				C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */,
 			);
 			path = DummySpit;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +302,7 @@
 		C92A474C199F250200FAA789 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -307,12 +312,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		C92A474D199F250200FAA789 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
