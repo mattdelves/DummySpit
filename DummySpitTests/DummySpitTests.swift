@@ -17,7 +17,7 @@ import DummySpit
 class DummySpitURLProtocolSpec: QuickSpec {
   override func spec() {
     describe("DummySpitServiceResponse") {
-      var response: MockWebServiceResponse!
+      var response: DummySpitServiceResponse!
       var error: NSError!
       
       describe("Init") {

@@ -10,6 +10,8 @@
 		C92A473E199F250100FAA789 /* DummySpit.h in Headers */ = {isa = PBXBuildFile; fileRef = C92A473D199F250100FAA789 /* DummySpit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C92A4748199F250200FAA789 /* DummySpitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4747199F250200FAA789 /* DummySpitTests.swift */; };
 		C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */; };
+		C92A4755199F295800FAA789 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A4754199F295800FAA789 /* Nimble.framework */; };
+		C92A4757199F295E00FAA789 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A4756199F295E00FAA789 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		C92A4746199F250200FAA789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92A4747199F250200FAA789 /* DummySpitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummySpitTests.swift; sourceTree = "<group>"; };
 		C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySpitURLProtocol.swift; sourceTree = "<group>"; };
+		C92A4754199F295800FAA789 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		C92A4756199F295E00FAA789 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DummySpit-dpzqgldywdlwbhdnxjilfwmwgihb/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92A4757199F295E00FAA789 /* Quick.framework in Frameworks */,
+				C92A4755199F295800FAA789 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +85,8 @@
 		C92A4744199F250200FAA789 /* DummySpitTests */ = {
 			isa = PBXGroup;
 			children = (
+				C92A4756199F295E00FAA789 /* Quick.framework */,
+				C92A4754199F295800FAA789 /* Nimble.framework */,
 				C92A4747199F250200FAA789 /* DummySpitTests.swift */,
 				C92A4745199F250200FAA789 /* Supporting Files */,
 			);
@@ -338,6 +346,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DummySpit-dpzqgldywdlwbhdnxjilfwmwgihb/Build/Products/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -355,6 +365,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DummySpit-dpzqgldywdlwbhdnxjilfwmwgihb/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = DummySpitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
