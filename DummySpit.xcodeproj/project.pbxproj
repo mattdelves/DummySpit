@@ -12,6 +12,8 @@
 		C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */; };
 		C92A4755199F295800FAA789 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A4754199F295800FAA789 /* Nimble.framework */; };
 		C92A4757199F295E00FAA789 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A4756199F295E00FAA789 /* Quick.framework */; };
+		C9589EEF19A08DAE00F2B557 /* ClassUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9589EEE19A08DAE00F2B557 /* ClassUtility.swift */; };
+		C959A01819A0A38300E07431 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = C959A01719A0A38300E07431 /* dummy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySpitURLProtocol.swift; sourceTree = "<group>"; };
 		C92A4754199F295800FAA789 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		C92A4756199F295E00FAA789 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DummySpit-dpzqgldywdlwbhdnxjilfwmwgihb/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
+		C9589EEE19A08DAE00F2B557 /* ClassUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassUtility.swift; sourceTree = "<group>"; };
+		C959A01719A0A38300E07431 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				C92A473D199F250100FAA789 /* DummySpit.h */,
 				C92A473B199F250100FAA789 /* Supporting Files */,
 				C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */,
+				C9589EEE19A08DAE00F2B557 /* ClassUtility.swift */,
 			);
 			path = DummySpit;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C92A4746199F250200FAA789 /* Info.plist */,
+				C959A01719A0A38300E07431 /* dummy.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C959A01819A0A38300E07431 /* dummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */,
+				C9589EEF19A08DAE00F2B557 /* ClassUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +401,7 @@
 				C92A474D199F250200FAA789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C92A474E199F250200FAA789 /* Build configuration list for PBXNativeTarget "DummySpitTests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +410,7 @@
 				C92A4750199F250200FAA789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

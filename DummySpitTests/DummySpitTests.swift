@@ -20,7 +20,7 @@ class DummySpitURLProtocolSpec: QuickSpec {
       var response: DummySpitServiceResponse!
       var error: NSError!
       
-      describe("Init") {
+      describe("Init with body") {
         beforeEach {
           error = NSError(domain: "au.com.test.domain", code: 150, userInfo: nil)
           response = DummySpitServiceResponse(body: ["test": "blah"], header: ["Content-Type": "application/json; charset=utf-8"], statusCode: 404, error: error)
@@ -40,6 +40,17 @@ class DummySpitURLProtocolSpec: QuickSpec {
         
         it("should have an error") {
           expect(response.error).to(equal(error))
+        }
+      }
+      
+      describe("Init with filePath") {
+        beforeEach {
+          let filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
+          response = DummySpitServiceResponse(filePath: filePath, header: ["Content-Type": "application/json; charset=utf-8"])
+        }
+        
+        it("should have a body") {
+          expect(response.body as? NSDictionary).to(equal(["foo": "bar"]))
         }
       }
     }

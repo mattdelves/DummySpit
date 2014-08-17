@@ -28,6 +28,17 @@ public struct DummySpitServiceResponse
     self.statusCode = statusCode
     self.error = error
   }
+  
+  public init (filePath: String, header: NSDictionary, urlComponentToMatch urlComponent: String? = nil, statusCode: Int = 200, error: NSError? = nil)
+  {
+    let result:NSString = NSString.stringWithContentsOfFile(filePath, encoding: NSUTF8StringEncoding, error: nil)
+    let jsonResult: AnyObject! = NSJSONSerialization.JSONObjectWithData(result.dataUsingEncoding(NSUTF8StringEncoding), options: NSJSONReadingOptions(), error: nil)
+    self.body = jsonResult
+    self.header = header
+    self.urlComponent = urlComponent
+    self.statusCode = statusCode
+    self.error = error
+  }
 }
 
 var storage: [DummySpitServiceResponse]?
