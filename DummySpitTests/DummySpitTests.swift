@@ -46,7 +46,7 @@ class DummySpitURLProtocolSpec: QuickSpec {
       describe("Init with filePath") {
         beforeEach {
           let filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
-          response = DummySpitServiceResponse(filePath: filePath, header: ["Content-Type": "application/json; charset=utf-8"])
+          response = DummySpitServiceResponse(filePath: filePath!, header: ["Content-Type": "application/json; charset=utf-8"])
         }
         
         it("should have a body") {

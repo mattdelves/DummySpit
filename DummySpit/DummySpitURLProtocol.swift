@@ -32,7 +32,10 @@ public struct DummySpitServiceResponse
   public init (filePath: String, header: NSDictionary, urlComponentToMatch urlComponent: String? = nil, statusCode: Int = 200, error: NSError? = nil)
   {
     let result:NSString = NSString.stringWithContentsOfFile(filePath, encoding: NSUTF8StringEncoding, error: nil)
-    let jsonResult: AnyObject! = NSJSONSerialization.JSONObjectWithData(result.dataUsingEncoding(NSUTF8StringEncoding), options: NSJSONReadingOptions(), error: nil)
+    var jsonResult: AnyObject! = nil
+    if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
+      jsonResult = NSJSONSerialization.JSONObjectWithData(resultData, options: NSJSONReadingOptions(), error: nil)
+    }
     self.body = jsonResult
     self.header = header
     self.urlComponent = urlComponent
@@ -69,7 +72,7 @@ public class DummySpitURLProtocol: NSURLProtocol
       var responses = (tmpResponses as [DummySpitServiceResponse]).filter{
         cannedResponse -> Bool in
         
-        return (cannedResponse.urlComponent.hasValue) ? contains(URL.pathComponents as [String], cannedResponse.urlComponent!) : true
+        return (cannedResponse.urlComponent != nil) ? contains(URL.pathComponents as [String], cannedResponse.urlComponent!) : true
       }
       
       // give priority to responses that have a urlComponent
