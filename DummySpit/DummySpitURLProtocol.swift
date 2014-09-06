@@ -87,7 +87,7 @@ public class DummySpitURLProtocol: NSURLProtocol
     return nil
   }
   
-  override public class func canInitWithRequest(request: NSURLRequest!) -> Bool
+  override public class func canInitWithRequest(request: NSURLRequest) -> Bool
   {
     let schemeIsMock = request.URL.scheme == "mock"
     var urlMatched = responsesForURL(request.URL)?.count > 0
@@ -95,12 +95,12 @@ public class DummySpitURLProtocol: NSURLProtocol
     return (schemeIsMock && urlMatched)
   }
   
-  override public class func canonicalRequestForRequest(request: NSURLRequest!) -> NSURLRequest!
+  override public class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest
   {
     return request
   }
   
-  override public class func requestIsCacheEquivalent(a: NSURLRequest!, toRequest b: NSURLRequest!) -> Bool
+  override public class func requestIsCacheEquivalent(a: NSURLRequest, toRequest b: NSURLRequest) -> Bool
   {
     return a.URL == b.URL
   }
@@ -108,7 +108,7 @@ public class DummySpitURLProtocol: NSURLProtocol
   override public func startLoading()
   {
     let request = self.request
-    let client: NSURLProtocolClient = self.client
+    let client: NSURLProtocolClient = self.client!
     
     if let cannedResponses = self.dynamicType.responsesForURL(request.URL)
     {
@@ -123,7 +123,7 @@ public class DummySpitURLProtocol: NSURLProtocol
         client.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
         
         let jsonData = NSJSONSerialization.dataWithJSONObject(cannedResponse.body, options: NSJSONWritingOptions(), error: nil)
-        client.URLProtocol(self, didLoadData: jsonData)
+        client.URLProtocol(self, didLoadData: jsonData!)
         
         client.URLProtocolDidFinishLoading(self)
       }
