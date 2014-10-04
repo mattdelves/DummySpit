@@ -31,7 +31,7 @@ public struct DummySpitServiceResponse
   
   public init (filePath: String, header: NSDictionary, urlComponentToMatch urlComponent: String? = nil, statusCode: Int = 200, error: NSError? = nil)
   {
-    let result:NSString = NSString.stringWithContentsOfFile(filePath, encoding: NSUTF8StringEncoding, error: nil)
+    let result:NSString = NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil)!
     var jsonResult: AnyObject! = nil
     if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
       jsonResult = NSJSONSerialization.JSONObjectWithData(resultData, options: NSJSONReadingOptions(), error: nil)
@@ -120,7 +120,7 @@ public class DummySpitURLProtocol: NSURLProtocol
       else
       {
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header)
-        client.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
+        client.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
         
         let jsonData = NSJSONSerialization.dataWithJSONObject(cannedResponse.body, options: NSJSONWritingOptions(), error: nil)
         client.URLProtocol(self, didLoadData: jsonData!)
