@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90FDF2619E0288500E8A606 /* build_and_test.sh in Resources */ = {isa = PBXBuildFile; fileRef = C90FDF2519E0288500E8A606 /* build_and_test.sh */; };
 		C92A473E199F250100FAA789 /* DummySpit.h in Headers */ = {isa = PBXBuildFile; fileRef = C92A473D199F250100FAA789 /* DummySpit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C92A4748199F250200FAA789 /* DummySpitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4747199F250200FAA789 /* DummySpitTests.swift */; };
 		C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C90FDF2519E0288500E8A606 /* build_and_test.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_and_test.sh; sourceTree = SOURCE_ROOT; };
 		C92A4738199F250100FAA789 /* DummySpit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DummySpit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92A473C199F250100FAA789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92A473D199F250100FAA789 /* DummySpit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DummySpit.h; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		C92A4745199F250200FAA789 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C90FDF2519E0288500E8A606 /* build_and_test.sh */,
 				C92A4746199F250200FAA789 /* Info.plist */,
 				C959A01719A0A38300E07431 /* dummy.json */,
 			);
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C959A01819A0A38300E07431 /* dummy.json in Resources */,
+				C90FDF2619E0288500E8A606 /* build_and_test.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
