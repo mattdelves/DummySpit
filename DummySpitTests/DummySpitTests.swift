@@ -70,14 +70,14 @@ class DummySpitURLProtocolSpec: QuickSpec {
         context("without a url component to match") {
           context("when using mock scheme") {
             it("should be able to init a request") {
-              let request = NSURLRequest(URL: NSURL(string: "mock://www.apple.com"))
+              let request = NSURLRequest(URL: NSURL(string: "mock://www.apple.com")!)
               expect(DummySpitURLProtocol.canInitWithRequest(request)).to(beTruthy())
             }
           }
           
           context("when using http scheme") {
             it("should not be able to init a request") {
-              let request = NSURLRequest(URL: NSURL(string: "http://www.apple.com"))
+              let request = NSURLRequest(URL: NSURL(string: "http://www.apple.com")!)
               expect(DummySpitURLProtocol.canInitWithRequest(request)).to(beFalsy())
             }
           }
@@ -91,7 +91,7 @@ class DummySpitURLProtocolSpec: QuickSpec {
           }
           
           it("should be able to init a request") {
-            let request = NSURLRequest(URL: NSURL(string: "mock://www.apple.com/Controllers/GetStopsByRouteAndDirection.ashx?r=123&u=true"))
+            let request = NSURLRequest(URL: NSURL(string: "mock://www.apple.com/Controllers/GetStopsByRouteAndDirection.ashx?r=123&u=true")!)
             expect(DummySpitURLProtocol.canInitWithRequest(request)).to(beTruthy())
           }
         }
@@ -99,7 +99,7 @@ class DummySpitURLProtocolSpec: QuickSpec {
       
       describe("canonicalRequestForRequest") {
         it("should return the same request") {
-          let request = NSURLRequest(URL: NSURL(string: "mock://www.apple.com"))
+          let request = NSURLRequest(URL: NSURL(string: "mock://www.apple.com")!)
           expect(DummySpitURLProtocol.canonicalRequestForRequest(request)).to(equal(request))
         }
       }
@@ -107,16 +107,16 @@ class DummySpitURLProtocolSpec: QuickSpec {
       describe("requestIsCacheEquivalent") {
         context("when given requests are equal") {
           it("should be equivalent with the same request is given twice") {
-            let requestA = NSURLRequest(URL: NSURL(string: "mock://www.apple.com"))
-            let requestB = NSURLRequest(URL: NSURL(string: "mock://www.apple.com"))
+            let requestA = NSURLRequest(URL: NSURL(string: "mock://www.apple.com")!)
+            let requestB = NSURLRequest(URL: NSURL(string: "mock://www.apple.com")!)
             expect(DummySpitURLProtocol.requestIsCacheEquivalent(requestA, toRequest: requestB )).to(beTruthy())
           }
         }
         
         context("when given requests aren't equal") {
           it("should be equivalent with the same request is given twice") {
-            let requestA = NSURLRequest(URL: NSURL(string: "mock://www.apple.com"))
-            let requestB = NSURLRequest(URL: NSURL(string: "http://www.apple.com"))
+            let requestA = NSURLRequest(URL: NSURL(string: "mock://www.apple.com")!)
+            let requestB = NSURLRequest(URL: NSURL(string: "http://www.apple.com")!)
             expect(DummySpitURLProtocol.requestIsCacheEquivalent(requestA, toRequest: requestB )).to(beFalsy())
           }
         }
