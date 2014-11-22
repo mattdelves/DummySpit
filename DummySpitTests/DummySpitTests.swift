@@ -46,7 +46,19 @@ class DummySpitURLProtocolSpec: QuickSpec {
       describe("Init with filePath") {
         beforeEach {
           let filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
-          response = DummySpitServiceResponse(filePath: filePath!, header: ["Content-Type": "application/json; charset=utf-8"])
+          response = DummySpitServiceResponse(filePath: filePath!, header: ["Content-Type": "application/json; charset=utf-8"], urlComponentToMatch: nil)
+        }
+
+        it("should have a body") {
+          expect(response.body as? NSDictionary).to(equal(["foo": "bar"]))
+        }
+      }
+
+      describe("Init with URL") {
+        beforeEach {
+          let filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
+          let url = NSURL(string: "http://www.google.com")
+          response = DummySpitServiceResponse(filePath: filePath!, header: ["Content-Type": "application/json; charset=utf-8"], url: url)
         }
         
         it("should have a body") {
@@ -57,7 +69,7 @@ class DummySpitURLProtocolSpec: QuickSpec {
     
     describe("DummySpitURLProtocol") {
       beforeEach {
-        let response = DummySpitServiceResponse(body: ["test": "blah"], header: ["Content-Type": "application/json; charset=utf-8"])
+        let response = DummySpitServiceResponse(body: ["test": "blah"], header: ["Content-Type": "application/json; charset=utf-8"], urlComponentToMatch: nil)
         DummySpitURLProtocol.cannedResponse(response)
       }
       
