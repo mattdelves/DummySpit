@@ -136,9 +136,10 @@ public class DummySpitURLProtocol: NSURLProtocol
   override public class func canInitWithRequest(request: NSURLRequest) -> Bool
   {
     let schemeIsMock = request.URL.scheme == "mock"
+    var fullUrlMatched = responseMatchingURL(request.URL) != nil
     var urlMatched = responsesForURL(request.URL)?.count > 0
     
-    return (schemeIsMock && urlMatched)
+    return (schemeIsMock && (urlMatched || fullUrlMatched))
   }
 
   override public class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest
