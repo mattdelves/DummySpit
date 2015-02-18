@@ -27,7 +27,11 @@ class DummySpitURLProtocolSpec: QuickSpec {
         }
         
         it("should have a body") {
-          expect(response.body as? NSDictionary).to(equal(["test": "blah"]))
+          var jsonResponse: [String: String]?
+          if let json = NSJSONSerialization.JSONObjectWithData(response.body!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? [String: String] {
+            jsonResponse = json
+          }
+          expect(jsonResponse).to(equal(["test": "blah"]))
         }
         
         it("should have an header") {
@@ -44,25 +48,60 @@ class DummySpitURLProtocolSpec: QuickSpec {
       }
       
       describe("Init with filePath") {
+        var filePath: String?
         beforeEach {
-          let filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
+          filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
           response = DummySpitServiceResponse(filePath: filePath!, header: ["Content-Type": "application/json; charset=utf-8"], urlComponentToMatch: nil)
         }
 
         it("should have a body") {
-          expect(response.body as? NSDictionary).to(equal(["foo": "bar"]))
+          var dataResponse: NSData?
+          let result:NSString = NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)!
+          if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
+            dataResponse = resultData
+          }
+          expect(response.body).to(equal(dataResponse))
         }
       }
 
       describe("Init with URL") {
+        var filePath: String?
         beforeEach {
-          let filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
+          filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
           let url = NSURL(string: "http://www.google.com")
           response = DummySpitServiceResponse(filePath: filePath!, header: ["Content-Type": "application/json; charset=utf-8"], url: url)
         }
         
         it("should have a body") {
-          expect(response.body as? NSDictionary).to(equal(["foo": "bar"]))
+          var dataResponse: NSData?
+          let result:NSString = NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)!
+          if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
+            dataResponse = resultData
+          }
+          expect(response.body).to(equal(dataResponse))
+        }
+      }
+
+      describe("Init with NSData") {
+        var filePath: String?
+        beforeEach {
+          filePath = NSBundle(forClass: DummySpitURLProtocolSpec.self).pathForResource("dummy", ofType: "json")
+          let url = NSURL(string: "http://www.google.com")
+          var dataResponse: NSData?
+          let result:NSString = NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)!
+          if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
+            dataResponse = resultData
+          }
+          response = DummySpitServiceResponse(data: dataResponse!, header: ["Content-Type": "application/json; charset=utf-8"], url: url)
+        }
+
+        it("should have a body") {
+          var dataResponse: NSData?
+          let result:NSString = NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)!
+          if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
+            dataResponse = resultData
+          }
+          expect(response.body).to(equal(dataResponse))
         }
       }
     }
@@ -133,8 +172,6 @@ class DummySpitURLProtocolSpec: QuickSpec {
           }
         }
       }
-      
-      // startLoading is tested inside NetworkServiceSpec
     }
   }
 }

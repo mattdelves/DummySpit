@@ -14,7 +14,7 @@ import Foundation
 
 public struct DummySpitServiceResponse
 {
-  public let body: AnyObject
+  public let body: NSData?
   public let header: NSDictionary
   public let urlComponent: String?
   public let statusCode: Int
@@ -23,7 +23,10 @@ public struct DummySpitServiceResponse
   
   public init (body: AnyObject, header: NSDictionary, urlComponentToMatch urlComponent: String? = nil, statusCode: Int = 200, error: NSError? = nil)
   {
-    self.body = body
+    if let jsonData = NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions(), error: nil) {
+      self.body = jsonData
+    }
+
     self.header = header
     self.urlComponent = urlComponent
     self.statusCode = statusCode
@@ -35,9 +38,9 @@ public struct DummySpitServiceResponse
     let result: NSString = NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil)!
     var jsonResult: AnyObject! = nil
     if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
-      jsonResult = NSJSONSerialization.JSONObjectWithData(resultData, options: NSJSONReadingOptions(), error: nil)
+      self.body = resultData
     }
-    self.body = jsonResult
+
     self.header = header
     self.url = url
     self.statusCode = statusCode
@@ -49,14 +52,32 @@ public struct DummySpitServiceResponse
     let result:NSString = NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil)!
     var jsonResult: AnyObject! = nil
     if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
-      jsonResult = NSJSONSerialization.JSONObjectWithData(resultData, options: NSJSONReadingOptions(), error: nil)
+      self.body = resultData
     }
-    self.body = jsonResult
     self.header = header
     self.urlComponent = urlComponent
     self.statusCode = statusCode
     self.error = error
   }
+
+  public init (data: NSData, header: NSDictionary, url: NSURL? = nil, statusCode: Int = 200, error: NSError? = nil)
+  {
+    self.body = data
+    self.header = header
+    self.url = url
+    self.statusCode = statusCode
+    self.error = error
+  }
+
+  public init (data: NSData, header: NSDictionary, urlComponentToMatch urlComponent: String? = nil, statusCode: Int = 200, error: NSError? = nil)
+  {
+    self.body = data
+    self.header = header
+    self.urlComponent = urlComponent
+    self.statusCode = statusCode
+    self.error = error
+  }
+
 }
 
 var storage: [DummySpitServiceResponse]?
@@ -162,8 +183,9 @@ public class DummySpitURLProtocol: NSURLProtocol
       let response = NSHTTPURLResponse(URL: request.URL, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header)
       client.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
 
-      let jsonData = NSJSONSerialization.dataWithJSONObject(cannedResponse.body, options: NSJSONWritingOptions(), error: nil)
-      client.URLProtocol(self, didLoadData: jsonData!)
+      if let body = cannedResponse.body {
+        client.URLProtocol(self, didLoadData: body)
+      }
 
       client.URLProtocolDidFinishLoading(self)
 
@@ -178,8 +200,9 @@ public class DummySpitURLProtocol: NSURLProtocol
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header)
         client.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
         
-        let jsonData = NSJSONSerialization.dataWithJSONObject(cannedResponse.body, options: NSJSONWritingOptions(), error: nil)
-        client.URLProtocol(self, didLoadData: jsonData!)
+        if let body = cannedResponse.body {
+          client.URLProtocol(self, didLoadData: body)
+        }
         
         client.URLProtocolDidFinishLoading(self)
       }
