@@ -25,8 +25,11 @@ public struct DummySpitServiceResponse
   {
     if let jsonData = NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions(), error: nil) {
       self.body = jsonData
+    } else {
+      self.body = nil
     }
 
+    self.url = nil
     self.header = header
     self.urlComponent = urlComponent
     self.statusCode = statusCode
@@ -39,12 +42,15 @@ public struct DummySpitServiceResponse
     var jsonResult: AnyObject! = nil
     if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
       self.body = resultData
+    } else {
+      self.body = nil
     }
 
     self.header = header
     self.url = url
     self.statusCode = statusCode
     self.error = error
+    self.urlComponent = nil
   }
 
   public init (filePath: String, header: NSDictionary, urlComponentToMatch urlComponent: String? = nil, statusCode: Int = 200, error: NSError? = nil)
@@ -53,11 +59,14 @@ public struct DummySpitServiceResponse
     var jsonResult: AnyObject! = nil
     if let resultData = result.dataUsingEncoding(NSUTF8StringEncoding) {
       self.body = resultData
+    } else {
+      self.body = nil
     }
     self.header = header
     self.urlComponent = urlComponent
     self.statusCode = statusCode
     self.error = error
+    self.url = nil
   }
 
   public init (data: NSData, header: NSDictionary, url: NSURL? = nil, statusCode: Int = 200, error: NSError? = nil)
@@ -65,6 +74,7 @@ public struct DummySpitServiceResponse
     self.body = data
     self.header = header
     self.url = url
+    self.urlComponent = nil
     self.statusCode = statusCode
     self.error = error
   }
@@ -74,6 +84,7 @@ public struct DummySpitServiceResponse
     self.body = data
     self.header = header
     self.urlComponent = urlComponent
+    self.url = nil
     self.statusCode = statusCode
     self.error = error
   }
@@ -126,7 +137,7 @@ public class DummySpitURLProtocol: NSURLProtocol
       var responses = (tmpResponses as [DummySpitServiceResponse]).filter{
         cannedResponse -> Bool in
 
-        return (cannedResponse.urlComponent != nil) ? contains(URL.pathComponents as [String], cannedResponse.urlComponent!) : true
+        return (cannedResponse.urlComponent != nil) ? contains(URL.pathComponents as! [String], cannedResponse.urlComponent!) : true
       }
       
       // give priority to responses that have a urlComponent
@@ -156,11 +167,13 @@ public class DummySpitURLProtocol: NSURLProtocol
 
   override public class func canInitWithRequest(request: NSURLRequest) -> Bool
   {
-    let schemeIsMock = request.URL.scheme == "mock"
-    var fullUrlMatched = responseMatchingURL(request.URL) != nil
-    var urlMatched = responsesForURL(request.URL)?.count > 0
-    
-    return (schemeIsMock && (urlMatched || fullUrlMatched))
+    if let url = request.URL {
+      let schemeIsMock = url.scheme == "mock"
+      var fullUrlMatched = responseMatchingURL(url) != nil
+      var urlMatched = responsesForURL(url)?.count > 0
+      return (schemeIsMock && (urlMatched || fullUrlMatched))
+    }
+    return false
   }
 
   override public class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest
@@ -179,8 +192,8 @@ public class DummySpitURLProtocol: NSURLProtocol
     let client: NSURLProtocolClient = self.client!
     
     // Test for full URLs
-    if let cannedResponse = self.dynamicType.responseMatchingURL(request.URL) {
-      let response = NSHTTPURLResponse(URL: request.URL, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header)
+    if let url = request.URL, let cannedResponse = self.dynamicType.responseMatchingURL(url) {
+      let response = NSHTTPURLResponse(URL: url, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header as [NSObject : AnyObject])
       client.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
 
       if let body = cannedResponse.body {
@@ -189,7 +202,7 @@ public class DummySpitURLProtocol: NSURLProtocol
 
       client.URLProtocolDidFinishLoading(self)
 
-    } else if let cannedResponses = self.dynamicType.responsesForURL(request.URL) {
+    } else if let url = request.URL, let cannedResponses = self.dynamicType.responsesForURL(url) {
       let cannedResponse: DummySpitServiceResponse = cannedResponses[0]
       if let error = cannedResponse.error
       {
@@ -197,7 +210,7 @@ public class DummySpitURLProtocol: NSURLProtocol
       }
       else
       {
-        let response = NSHTTPURLResponse(URL: request.URL, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header)
+        let response = NSHTTPURLResponse(URL: url, statusCode: cannedResponse.statusCode, HTTPVersion: "HTTP/1.1", headerFields: cannedResponse.header as [NSObject : AnyObject])
         client.URLProtocol(self, didReceiveResponse: response!, cacheStoragePolicy: NSURLCacheStoragePolicy.NotAllowed)
         
         if let body = cannedResponse.body {
