@@ -28,8 +28,5 @@ git clean -fd
 git fetch -q
 git checkout -qf "$BUILDBOX_COMMIT"
 
-git submodule init
-git submodule update
-
 set -o pipefail && xcrun xcodebuild -workspace DummySpit.xcworkspace -scheme DummySpit -sdk iphonesimulator8.2 -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.2' clean build test
 
