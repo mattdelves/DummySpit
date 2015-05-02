@@ -11,10 +11,10 @@
 		C92A473E199F250100FAA789 /* DummySpit.h in Headers */ = {isa = PBXBuildFile; fileRef = C92A473D199F250100FAA789 /* DummySpit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C92A4748199F250200FAA789 /* DummySpitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4747199F250200FAA789 /* DummySpitTests.swift */; };
 		C92A4752199F259400FAA789 /* DummySpitURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */; };
-		C94AD0C51A6DE417003CDC2C /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94AD0C41A6DE417003CDC2C /* Quick.framework */; };
-		C94AD0CF1A6DE582003CDC2C /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94AD0CE1A6DE582003CDC2C /* Nimble.framework */; };
 		C9589EEF19A08DAE00F2B557 /* ClassUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9589EEE19A08DAE00F2B557 /* ClassUtility.swift */; };
 		C959A01819A0A38300E07431 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = C959A01719A0A38300E07431 /* dummy.json */; };
+		C9DD89721AF4877500AC2B26 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DD89701AF4877500AC2B26 /* Nimble.framework */; };
+		C9DD89731AF4877500AC2B26 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DD89711AF4877500AC2B26 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +26,10 @@
 		C92A4746199F250200FAA789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92A4747199F250200FAA789 /* DummySpitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummySpitTests.swift; sourceTree = "<group>"; };
 		C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummySpitURLProtocol.swift; sourceTree = "<group>"; };
-		C94AD0C41A6DE417003CDC2C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../DerivedData/DummySpit/Build/Products/Debug/Quick.framework; sourceTree = "<group>"; };
-		C94AD0CE1A6DE582003CDC2C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../DerivedData/DummySpit/Build/Products/Debug/Nimble.framework; sourceTree = "<group>"; };
 		C9589EEE19A08DAE00F2B557 /* ClassUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassUtility.swift; sourceTree = "<group>"; };
 		C959A01719A0A38300E07431 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
+		C9DD89701AF4877500AC2B26 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		C9DD89711AF4877500AC2B26 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C94AD0CF1A6DE582003CDC2C /* Nimble.framework in Frameworks */,
-				C94AD0C51A6DE417003CDC2C /* Quick.framework in Frameworks */,
+				C9DD89731AF4877500AC2B26 /* Quick.framework in Frameworks */,
+				C9DD89721AF4877500AC2B26 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +101,8 @@
 		C92A4745199F250200FAA789 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C94AD0CE1A6DE582003CDC2C /* Nimble.framework */,
-				C94AD0C41A6DE417003CDC2C /* Quick.framework */,
+				C9DD89701AF4877500AC2B26 /* Nimble.framework */,
+				C9DD89711AF4877500AC2B26 /* Quick.framework */,
 				C90FDF2519E0288500E8A606 /* build_and_test.sh */,
 				C92A4746199F250200FAA789 /* Info.plist */,
 				C959A01719A0A38300E07431 /* dummy.json */,
@@ -149,6 +149,7 @@
 				C92A473F199F250200FAA789 /* Sources */,
 				C92A4740199F250200FAA789 /* Frameworks */,
 				C92A4741199F250200FAA789 /* Resources */,
+				C9DD89741AF4878200AC2B26 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -212,6 +213,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9DD89741AF4878200AC2B26 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C92A4733199F250100FAA789 /* Sources */ = {
@@ -365,6 +384,7 @@
 					"$(PROJECT_DIR)/nimble/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug",
 					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -386,6 +406,7 @@
 					"$(PROJECT_DIR)/nimble/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug",
 					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DummySpitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -4,10 +4,4 @@
    <FileRef
       location = "container:DummySpit.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:quick/Quick.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:nimble/Nimble.xcodeproj">
-   </FileRef>
 </Workspace>
