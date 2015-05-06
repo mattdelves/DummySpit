@@ -15,7 +15,41 @@
 		C959A01819A0A38300E07431 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = C959A01719A0A38300E07431 /* dummy.json */; };
 		C9DD89721AF4877500AC2B26 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DD89701AF4877500AC2B26 /* Nimble.framework */; };
 		C9DD89731AF4877500AC2B26 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DD89711AF4877500AC2B26 /* Quick.framework */; };
+		DDC816391AFA08C7004D99DD /* DummySpit-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = DDC816381AFA08C7004D99DD /* DummySpit-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DDC8164D1AFA08D9004D99DD /* DummySpitURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4751199F259400FAA789 /* DummySpitURLProtocol.swift */; };
+		DDC8164E1AFA08DC004D99DD /* ClassUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9589EEE19A08DAE00F2B557 /* ClassUtility.swift */; };
+		DDC8164F1AFA094C004D99DD /* DummySpitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A4747199F250200FAA789 /* DummySpitTests.swift */; };
+		DDC816551AFA0A59004D99DD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC816501AFA0966004D99DD /* Nimble.framework */; };
+		DDC816561AFA0A59004D99DD /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC816511AFA0966004D99DD /* Quick.framework */; };
+		DDC816591AFA0D6C004D99DD /* DummySpit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC816341AFA08C7004D99DD /* DummySpit.framework */; };
+		DDC8165B1AFA0F12004D99DD /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = C959A01719A0A38300E07431 /* dummy.json */; };
+		DDC8165D1AFA1040004D99DD /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DDC816501AFA0966004D99DD /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDC8165E1AFA1040004D99DD /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DDC816511AFA0966004D99DD /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDC816401AFA08C7004D99DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C92A472F199F250100FAA789 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDC816331AFA08C7004D99DD;
+			remoteInfo = "DummySpit-OSX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDC8165C1AFA1030004D99DD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DDC8165D1AFA1040004D99DD /* Nimble.framework in CopyFiles */,
+				DDC8165E1AFA1040004D99DD /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C90FDF2519E0288500E8A606 /* build_and_test.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_and_test.sh; sourceTree = SOURCE_ROOT; };
@@ -30,6 +64,13 @@
 		C959A01719A0A38300E07431 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 		C9DD89701AF4877500AC2B26 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		C9DD89711AF4877500AC2B26 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		DDC816341AFA08C7004D99DD /* DummySpit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DummySpit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC816371AFA08C7004D99DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC816381AFA08C7004D99DD /* DummySpit-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DummySpit-OSX.h"; sourceTree = "<group>"; };
+		DDC8163E1AFA08C7004D99DD /* DummySpitOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DummySpitOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC816441AFA08C7004D99DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC816501AFA0966004D99DD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		DDC816511AFA0966004D99DD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +90,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDC816301AFA08C7004D99DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC8163B1AFA08C7004D99DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC816591AFA0D6C004D99DD /* DummySpit.framework in Frameworks */,
+				DDC816551AFA0A59004D99DD /* Nimble.framework in Frameworks */,
+				DDC816561AFA0A59004D99DD /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +115,8 @@
 			children = (
 				C92A473A199F250100FAA789 /* DummySpit */,
 				C92A4744199F250200FAA789 /* DummySpitTests */,
+				DDC816351AFA08C7004D99DD /* DummySpit-OSX */,
+				DDC816421AFA08C7004D99DD /* DummySpit-OSXTests */,
 				C92A4739199F250100FAA789 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +126,8 @@
 			children = (
 				C92A4738199F250100FAA789 /* DummySpit.framework */,
 				C92A4743199F250200FAA789 /* DummySpitTests.xctest */,
+				DDC816341AFA08C7004D99DD /* DummySpit.framework */,
+				DDC8163E1AFA08C7004D99DD /* DummySpitOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +172,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DDC816351AFA08C7004D99DD /* DummySpit-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				DDC816381AFA08C7004D99DD /* DummySpit-OSX.h */,
+				DDC816361AFA08C7004D99DD /* Supporting Files */,
+			);
+			path = "DummySpit-OSX";
+			sourceTree = "<group>";
+		};
+		DDC816361AFA08C7004D99DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DDC816371AFA08C7004D99DD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDC816421AFA08C7004D99DD /* DummySpit-OSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				DDC816431AFA08C7004D99DD /* Supporting Files */,
+			);
+			path = "DummySpit-OSXTests";
+			sourceTree = "<group>";
+		};
+		DDC816431AFA08C7004D99DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DDC816501AFA0966004D99DD /* Nimble.framework */,
+				DDC816511AFA0966004D99DD /* Quick.framework */,
+				DDC816441AFA08C7004D99DD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -118,6 +215,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92A473E199F250100FAA789 /* DummySpit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC816311AFA08C7004D99DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC816391AFA08C7004D99DD /* DummySpit-OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +265,43 @@
 			productReference = C92A4743199F250200FAA789 /* DummySpitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DDC816331AFA08C7004D99DD /* DummySpitOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC8164B1AFA08C7004D99DD /* Build configuration list for PBXNativeTarget "DummySpitOSX" */;
+			buildPhases = (
+				DDC8162F1AFA08C7004D99DD /* Sources */,
+				DDC816301AFA08C7004D99DD /* Frameworks */,
+				DDC816311AFA08C7004D99DD /* Headers */,
+				DDC816321AFA08C7004D99DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DummySpitOSX;
+			productName = "DummySpit-OSX";
+			productReference = DDC816341AFA08C7004D99DD /* DummySpit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DDC8163D1AFA08C7004D99DD /* DummySpitOSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC8164C1AFA08C7004D99DD /* Build configuration list for PBXNativeTarget "DummySpitOSXTests" */;
+			buildPhases = (
+				DDC8163A1AFA08C7004D99DD /* Sources */,
+				DDC8163B1AFA08C7004D99DD /* Frameworks */,
+				DDC8163C1AFA08C7004D99DD /* Resources */,
+				DDC8165C1AFA1030004D99DD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDC816411AFA08C7004D99DD /* PBXTargetDependency */,
+			);
+			name = DummySpitOSXTests;
+			productName = "DummySpit-OSXTests";
+			productReference = DDC8163E1AFA08C7004D99DD /* DummySpitOSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -174,6 +316,12 @@
 					};
 					C92A4742199F250200FAA789 = {
 						CreatedOnToolsVersion = 6.0;
+					};
+					DDC816331AFA08C7004D99DD = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					DDC8163D1AFA08C7004D99DD = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -191,6 +339,8 @@
 			targets = (
 				C92A4737199F250100FAA789 /* DummySpit */,
 				C92A4742199F250200FAA789 /* DummySpitTests */,
+				DDC816331AFA08C7004D99DD /* DummySpitOSX */,
+				DDC8163D1AFA08C7004D99DD /* DummySpitOSXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +359,21 @@
 			files = (
 				C959A01819A0A38300E07431 /* dummy.json in Resources */,
 				C90FDF2619E0288500E8A606 /* build_and_test.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC816321AFA08C7004D99DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC8163C1AFA08C7004D99DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC8165B1AFA0F12004D99DD /* dummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +415,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDC8162F1AFA08C7004D99DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC8164D1AFA08D9004D99DD /* DummySpitURLProtocol.swift in Sources */,
+				DDC8164E1AFA08DC004D99DD /* ClassUtility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC8163A1AFA08C7004D99DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC8164F1AFA094C004D99DD /* DummySpitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDC816411AFA08C7004D99DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDC816331AFA08C7004D99DD /* DummySpitOSX */;
+			targetProxy = DDC816401AFA08C7004D99DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C92A4749199F250200FAA789 /* Debug */ = {
@@ -415,6 +605,96 @@
 			};
 			name = Release;
 		};
+		DDC816471AFA08C7004D99DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DummySpit-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = DummySpit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DDC816481AFA08C7004D99DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "DummySpit-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = DummySpit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DDC816491AFA08C7004D99DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DummySpit-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DDC8164A1AFA08C7004D99DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "DummySpit-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -444,6 +724,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		DDC8164B1AFA08C7004D99DD /* Build configuration list for PBXNativeTarget "DummySpitOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC816471AFA08C7004D99DD /* Debug */,
+				DDC816481AFA08C7004D99DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DDC8164C1AFA08C7004D99DD /* Build configuration list for PBXNativeTarget "DummySpitOSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC816491AFA08C7004D99DD /* Debug */,
+				DDC8164A1AFA08C7004D99DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
