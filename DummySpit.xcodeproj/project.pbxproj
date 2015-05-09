@@ -571,9 +571,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/nimble/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug",
-					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug-iphonesimulator",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -593,9 +590,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/nimble/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug",
-					"$(PROJECT_DIR)/DerivedData/DummySpit/Build/Products/Debug-iphonesimulator",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DummySpitTests/Info.plist;
