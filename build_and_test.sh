@@ -28,5 +28,5 @@ git clean -fd
 git fetch -q
 git checkout -qf "$BUILDBOX_COMMIT"
 
-set -o pipefail && xcrun xcodebuild -workspace DummySpit.xcworkspace -scheme DummySpit -sdk iphonesimulator8.4 -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.4' clean build test
+set -o pipefail && xcrun xcodebuild -project DummySpit.xcodeproj -scheme DummySpit -sdk iphonesimulator8.4 -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.4' clean build test | xcpretty -c
 
